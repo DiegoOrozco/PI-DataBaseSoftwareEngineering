@@ -1,0 +1,424 @@
+body {
+    overflow-x:hidden;
+}
+
+* {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+}
+
+.mensajeError {
+    color: #3d3d3d !important;
+}
+
+.enunciadoPregunta {
+    text-align: center !important;
+    color: #3d3d3d !important;
+    font-size: 22px !important;
+}
+
+.tituloJustificacion {
+    text-align: center !important;
+    color: #4a4a4a !important;
+    font-size: 18px !important;
+    margin-top: 30px !important;
+}
+
+.tituloEstadisticas {
+    text-align: center;
+    color: #4a4a4a;
+}
+
+.breadcrumb {
+    background-color: #f0f0f0;
+    margin-top: 2px;
+    margin-bottom: 1px;
+}
+
+.cuerpoPrincipal {
+    margin-right: 2px;
+    margin-left: 3px;
+    padding-bottom: 10%;
+    background-color: #f1f1f1;
+}
+
+.collapsible {
+    background-color: #41ade7;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.activeCollapsible, .collapsible:hover {
+    background-color: #41ade7;
+}
+
+.collapsible:after {
+	content: '\002B';
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
+}
+
+.activeCollapsible:after {
+	content: "\2212";
+}
+
+.content {
+	padding: 0 18px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	background-color: #f1f1f1;
+}
+
+/*Llugar donde se dibuja el gráfico*/
+canvas{
+    margin: auto;
+    height: 100%;
+    min-height: inherit;
+    width: inherit;
+    min-width: inherit;
+}
+
+canvas.graficosPromedio {
+    height: 100% !important;
+    width: auto !important;
+    margin: 0 auto !important;
+    display: block;
+       
+}
+
+/*Cuadro para las justificaciones*/
+div.row.myBox, div.myBox {
+    position: relative;
+    vertical-align: middle;
+    margin: 30px auto;
+    font: 18px;
+    width: inherit;
+    height: inherit;
+    overflow: auto;
+    background-color: lightgray;
+    list-style-position: inside;
+    position: inherit;
+    padding: 0px !important;
+}
+
+.myBox ul 
+{
+    background-color: inherit;
+    padding: 0px;
+    width: 100%;
+    list-style: none;
+    margin: auto;
+    max-height: 35.3vh;
+}
+
+.myBox ul li {
+    background-color: white;
+    height: auto;
+    color: #595959;
+    margin: 4px;
+    padding: 8px;
+}
+
+.textoAbierto ul {
+    background-color: inherit;
+    padding: 0px;
+    width: 50vw;
+    list-style: none;
+    margin-bottom: 0;
+    max-height: 35.3vh;
+}
+
+
+div.row.estadisticas {
+    background-color: #f5f5f5;
+    font: 15px;
+    color: #747474;
+    text-align: center;
+    width: 100%;
+    margin: 0px !important;
+    padding: 0px !important
+}
+
+.col{
+    align-self: center;
+    margin: 2% !important;
+    align-items:center;
+
+}
+
+/* Clear floats after the columns */
+.row {
+    vertical-align: middle;
+}
+
+.row:after 
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row h3, h3 
+{
+    text-align: center;
+    width: 100%;
+}
+
+.navbar-nav {
+    display: inline !important;
+}
+
+.caret {
+    display: none;
+}
+
+/*Estilos para dashboard en general:*/
+.container-fluid {
+    height: 100%;
+    padding: 1%;
+    padding-top: 0;
+}
+
+.container-fluid .h4, h4 {
+    text-align: center;
+    font-size: medium !important;
+}
+
+.container-fluid .h5, h5 {
+    text-align: left;
+    font-size: smaller !important;
+}
+
+.container-fluid .row {
+    height: inherit;
+    padding: 1% !important;
+    padding-top: 0 !important;
+    padding-bottom: 3% !important;
+}
+
+/*Estilo para columna de filtros (izquierda)*/
+.container-fluid .row .col-3 {
+    background-color: #fbfbfb;
+    height: inherit;
+    margin: 1% !important;
+    padding: 1%;
+    border: 1px solid rgba(0,0,0,.075);
+    border-radius: 3px;
+}
+
+/*Estilo para la columna donde se despliegan los resultados*/
+.container-fluid .row .col {
+    background-color: #fbfbfb;
+    height: inherit;
+    margin-right: 1% !important;
+    margin: 0 !important;
+    padding: 1%;
+    border: 1px solid rgba(0,0,0,.075);
+    border-radius: 3px;
+}
+
+/*Estilo para la sección donde se despliegan los promedios de profesor y cursos*/
+#promedios {
+    height: 30%;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 1% !important;
+    text-align: center;
+}
+
+/*Estilo para la columna que se despliega dentro de la sección de promedios*/
+#promedios .col{
+    height: 100%;
+    margin:0 !important;
+    padding:40px !important;
+    padding-top: 0 !important;
+}
+
+/*Estilo para la sección donde se despliega la cuadrícula con resultados de un formulario*/
+#cuadricula {
+    height: 70%;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-top: 1% !important;
+    padding-bottom: 1.5% !important;
+}
+
+/*Estilo para la columna que se despliega dentro de la sección de cuadrícula*/
+#cuadricula .col {
+    height: 100%;
+    margin: 0 !important;
+}
+
+.multiselect-container > li > a > label.checkbox {
+    padding: 2%;
+    background-color: none;
+    width: inherit;
+}
+
+.btn {
+    background-color: #dee2e6 !important;
+}
+
+.select 
+{
+    width: 100% !important;
+    border-radius: 5px 5px 5px 5px;
+    font-size: small;
+}
+
+.select .option {
+    width: inherit;
+    border-radius: 5px 5px 5px 5px;
+    font-size: small ;
+}
+
+/*Estilo para los multiselect*/
+/*Con este le puede cambiar el tamaño a todo el componente.*/
+div.btn-group {
+    width: 100% !important;
+    font-size: small;
+}
+
+button.multiselect.dropdown-toggle.btn-default {
+    border: 1px solid rgba(0,0,0,.15) !important;
+    background-color: #f0f0f0 !important;
+    width: 100%;
+    padding:0;
+}
+
+ul.multiselect-container.dropdown-menu {
+    background-color: white;
+    /*padding: 2% !important;*/
+    white-space: nowrap;
+    max-width: 200%;
+    min-width: 150%;
+    overflow: auto !important;
+}
+
+ul.multiselect-container.dropdown-menu.show {
+    white-space: nowrap;
+    overflow: auto !important;
+    max-width: 200%;
+    min-width: 150%;
+    padding: 3%;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+}
+
+input.form-control.multiselect-search 
+{
+    font-size: small;
+}
+
+label.checkbox {
+    /*padding-right: 1% !important;*/
+    font-size: small;
+    min-width: 100%;
+}
+
+label.checkbox:hover {
+    background-color: dodgerblue;
+    width: max-content;
+    min-width: 100%;
+}
+
+label.radio {
+    padding-left: 2% !important;
+    margin: 0;
+    font-size: small;
+    min-width: 100%;
+}
+
+label.radio:hover {
+    background-color: dodgerblue;
+    width: max-content;
+    min-width: 100%;
+}
+
+span.multiselect-selected-text {
+    font-size: small;
+    max-width: 90%;
+    display: inline-flex;
+    overflow: hidden;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-remove-circle:before {
+    content: "X";
+}
+
+button.btn.btn-default.multiselect-clear-filter {
+    margin: 0;
+    padding-bottom: 9%;
+}
+
+/*Estilos para la vista parcial*/
+
+div.row.filaBase {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+div.col.columnaIzquierda {
+    height: 100% !important;
+    padding: 50px !important;
+    padding-right: 25px !important;
+    flex: 1 !important;
+}
+
+div.col.columnaDerecha {
+    height: 100% !important;
+    padding: 50px !important;
+    padding-left: 25px !important;
+    flex: 1 !important;
+}
+
+.contenerdorSecciones {
+    height: 10% !important;
+}
+
+.filaSecciones {
+    height: 10% !important;
+}
+
+.flexPregunta {
+    padding: 25px !important;
+}
+
+.labelcito {
+    font-size: 14px;
+}
+
+#secciones {
+    font-size: small;
+}
+
+#secciones.form-control {
+    font-size: small;
+}
+
+#secciones option {
+    font-size: small;
+}
